@@ -20,3 +20,12 @@ class Queue(AbstractQueue):
         if index >= 0 and index < len(self.queue):
             return self.queue[index]
         raise IndexError("Índice Inválido ou Inexistente")
+
+    # método que será usado no módulo file_process:
+    def is_in_queue(self, path_file):
+        for index in range(len(self.queue)):
+            if self.queue[index]["nome_do_arquivo"] == path_file:  # obs1
+                return True
+        return False
+
+# obs1: no req3, o nome do arquivo será armazenado na chave "nome_do_arquivo"
